@@ -2,7 +2,6 @@
   "openapi": "3.0.3",
   "info": {
     "title": "TodoList RESTfull API",
-    "version": "1.0.0",
     "description": "OpenAPI for TodoList RESTfull API",
     "termsOfService": "https://github.com/KomangSetiana",
     "contact": {
@@ -11,7 +10,7 @@
       "url": "https://github.com/KomangSetiana/"
     },
     "license": {
-      "name": "APACHE 2.0",
+      "name": "APACHE 2,0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     }
   },
@@ -21,7 +20,7 @@
       "url": "https://{enviroment}.bimacool.com/api/v1",
       "variables": {
         "enviroment": {
-          "description": "servers environment",
+          "description": "servers enviroment",
           "default": "dev",
           "enum": ["dev", "qa", "prod"]
         }
@@ -48,7 +47,7 @@
             "name": "include-done",
             "in": "query",
             "required": false,
-            "description": "Include done todolist",
+            "description": "Is include done todolist",
             "schema": {
               "type": "boolean",
               "nullable": true,
@@ -59,7 +58,7 @@
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter todolist by name",
+            "description": "Fillter todolist by name",
             "schema": {
               "type": "string",
               "nullable": true,
@@ -69,7 +68,7 @@
             "examples": {
               "java": {
                 "value": "Java",
-                "description": "example name Java"
+                "description": "example name java"
               },
               "php": {
                 "value": "PHP",
@@ -84,7 +83,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ArrayTodoList"
+                  "$ref": "#/components/schemas/Array TodoList"
                 },
                 "examples": {
                   "Success": {
@@ -94,13 +93,13 @@
                         "id": "1",
                         "name": "java",
                         "priority": 3,
-                        "tags": ["java", "programming", "oop"]
+                        "tags": ["java", "programing", "oop"]
                       },
                       {
-                        "id": "2",
+                        "id": "1",
                         "name": "PHP",
                         "priority": 3,
-                        "tags": ["PHP", "programming", "oop"]
+                        "tags": ["PHP", "programing", "oop"]
                       }
                     ]
                   }
@@ -118,7 +117,7 @@
         ],
         "tags": ["TodoList"],
         "summary": "Create new todolist",
-        "description": "Create new todolist in the database",
+        "description": "Create new todolist to database",
         "requestBody": {
           "required": true,
           "content": {
@@ -128,19 +127,19 @@
               },
               "examples": {
                 "java": {
-                  "description": "Create todolist Java",
+                  "description": "Create todolist java",
                   "value": {
                     "name": "Java",
                     "priority": 3,
-                    "tags": ["java", "programming", "oop"]
+                    "tags": ["java", "programing", "oop"]
                   }
                 },
-                "php": {
+                "PHP": {
                   "description": "Create todolist PHP",
                   "value": {
                     "name": "PHP",
                     "priority": 3,
-                    "tags": ["PHP", "programming", "oop"]
+                    "tags": ["PHP", "programing", "oop"]
                   }
                 }
               }
@@ -154,6 +153,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TodoList"
+                },
+                "examples": {
+                  "java": {
+                    "description": "Success Create java todolist",
+                    "value": {
+                      "id": "1",
+                      "name": "java",
+                      "priority": 3,
+                      "tags": ["java", "programing", "oop"]
+                    }
+                  },
+                  "PHP": {
+                    "description": "Success Create PHP todolist",
+                    "value": {
+                      "id": "1",
+                      "name": "PHP",
+                      "priority": 3,
+                      "tags": ["PHP", "programing", "oop"]
+                    }
+                  }
                 }
               }
             }
@@ -170,7 +189,7 @@
         ],
         "tags": ["TodoList"],
         "summary": "Update todolist",
-        "description": "Update todolist in the database",
+        "description": "Update todolist in database",
         "parameters": [
           {
             "$ref": "#/components/parameters/todolistId"
@@ -182,17 +201,55 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateOrUpdateTodoList"
+              },
+              "examples": {
+                "java": {
+                  "description": "Create todolist java",
+                  "value": {
+                    "name": "Java",
+                    "priority": 3,
+                    "tags": ["java", "programing", "oop"]
+                  }
+                },
+                "PHP": {
+                  "description": "Create todolist PHP",
+                  "value": {
+                    "name": "PHP",
+                    "priority": 3,
+                    "tags": ["PHP", "programing", "oop"]
+                  }
+                }
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Success Update todolist",
+            "description": "Success Create todolist",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TodoList"
+                },
+                "examples": {
+                  "java": {
+                    "description": "Success Create java todolist",
+                    "value": {
+                      "id": "1",
+                      "name": "java",
+                      "priority": 3,
+                      "tags": ["java", "programing", "oop"]
+                    }
+                  },
+                  "PHP": {
+                    "description": "Success Create PHP todolist",
+                    "value": {
+                      "id": "1",
+                      "name": "PHP",
+                      "priority": 3,
+                      "tags": ["PHP", "programing", "oop"]
+                    }
+                  }
                 }
               }
             }
@@ -283,6 +340,17 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 100
+        },
+
+        "examples": {
+          "java": {
+            "value": "1",
+            "description": "example sample todolist id for java"
+          },
+          "php": {
+            "value": "2",
+            "description": "example sample todolist id for PHP"
+          }
         }
       }
     },
@@ -297,7 +365,7 @@
             "type": "string"
           },
           "priority": {
-            "type": "integer",
+            "type": "number",
             "format": "int32"
           },
           "tags": {
@@ -313,21 +381,27 @@
         "properties": {
           "name": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "required": true
           },
           "priority": {
             "type": "integer",
+            "format": "int32",
+            "required": true,
             "default": 1
           },
           "tags": {
             "type": "array",
+            "required": false,
+            "minItems": 1,
             "items": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             }
           }
         }
       },
-      "ArrayTodoList": {
+      "Array TodoList": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/TodoList"
